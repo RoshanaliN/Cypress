@@ -1,7 +1,7 @@
 /// <reference types="cypress" />
 //Test case is called Spec in cypress
-describe("First Suite",function(){
-    it("First Scenario",function(){
+describe("Second Suite",function(){
+    it("Second Scenario",function(){
         cy.visit("https://rahulshettyacademy.com/seleniumPractise/#/")
         cy.get('.search-keyword').type("ca")
         cy.get('.search-button')

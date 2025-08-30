@@ -1,0 +1,37 @@
+/// <reference types="cypress" />
+describe("checkBoxDropdownTest",function(){
+    it("checkBoxTest",function(){
+        cy.visit("https://rahulshettyacademy.com/AutomationPractice/")
+        cy.get('#checkBoxOption2').check().should('be.checked').and('have.value',"option2")
+        cy.get('#checkBoxOption2').uncheck().should('not.be.checked')
+        cy.get('input[type="checkbox"]').check(['option3','option1'])
+    }),
+    it("staticDropdownTest",function(){
+        cy.visit("https://rahulshettyacademy.com/AutomationPractice/")
+        cy.get('#dropdown-class-example').select('option2').should('have.value',"option2")
+    }),
+    it("dynamicDropdownTest",function(){
+        cy.visit("https://rahulshettyacademy.com/AutomationPractice/")
+        cy.get('#autocomplete').type("ind")
+        cy.get('.ui-menu-item div').each(($el,indexedDB,$list)=>{
+            if($el.text()==="India"){
+                cy.wrap($el).click()
+            }
+        })
+        cy.get('#autocomplete').should('have.value',"India")
+    }),
+    it("visibilityInvisibilityTest",function(){
+        cy.visit("https://rahulshettyacademy.com/AutomationPractice/")
+        cy.get('#displayed-text').should('be.visible')
+        cy.get('#hide-textbox').click()
+        cy.get('#displayed-text').should('not.be.visible')
+        cy.get('#show-textbox').click()
+        cy.get('#displayed-text').should('be.visible')
+    }),
+    it("radioButtonTest",function(){
+        cy.visit("https://rahulshettyacademy.com/AutomationPractice/")
+        cy.get("input[value='radio1']").click().should('be.checked')
+        cy.get("input[value='radio3']").check().should('be.checked')
+        cy.get("input[value='radio1']").should('not.be.checked')
+    })
+})
