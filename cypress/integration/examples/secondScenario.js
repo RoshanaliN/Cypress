@@ -6,12 +6,6 @@ describe("First Suite",function(){
         cy.get('.search-keyword').type("ca")
         cy.get('.search-button')
         cy.wait(2000)
-        // cypress alias command
-        cy.get('.product').as('productLocator')
-        // cypress get acts as findelements of selenium
-        cy.get('@productLocator').should('have.length',5)
-        cy.get('.product:visible').should('have.length',4)
-        cy.get('.products .product').should('have.length',4)
         // Parent Child relation-ship
         cy.get('.products').find('.product').should('have.length',4)
         // hardcoded
@@ -22,11 +16,9 @@ describe("First Suite",function(){
                cy.wrap($el).find('button').click() 
             }
         })
-        // assertion
-        cy.get('.brand').should('have.text',"GREENKART")
-        // print logs
-        cy.get('.brand').then(function(logoText){
-            cy.log(logoText)
-        })
+        cy.get('.cart-icon').click()
+        cy.get('.cart-item:visible').should('have.length',2)
+        cy.get('.cart-preview').find('button').click()
+        cy.get('button').contains("Place Order").click()
     })
 })
