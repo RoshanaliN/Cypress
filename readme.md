@@ -13,3 +13,4 @@ Cypress has capability to listening to browser events like window:alert
 We can travers to next sibing elements using next() but it only works on cy.get()
 No direct support ofmouse hover in cypress, we use jquery method show to show the hidden values. jquery commands are used using invoke()
 we can directly click on hidden elements using click({force:true})
+for IFRAME you need to install cypress-iframe package using npm install -D cypress-iframe command
