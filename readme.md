@@ -17,3 +17,5 @@ for IFRAME you need to install cypress-iframe package using npm install -D cypre
 use `` to evaluate variables at runtime in cypress
 example: const productName = Nokia
 if($el.find("h4 a").text().includes(`${productName}`)){}
+fixtures folder contains data that we can use in our scenarios in json files which are loaded at start of cypress
+Cypress default timeout is 4 sec, it can be changes globally by adding changes to cypress.config.js file or just for one test cases by using following command Cypress.config('defaultCommandTimeout',7000)
